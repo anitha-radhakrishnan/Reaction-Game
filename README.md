@@ -1,6 +1,6 @@
 # Reaction Game Control Box
 
-This Arduino sketch is designed for a reaction game control box consisting of 20 illuminated switches, each connected to 5V relay modules. The relay modules are controlled using two CD74HC4067 multiplexers, with 10 pins of each multiplexer utilized. Pins 4 to 13 are used in both multiplexers.
+This Arduino sketch is designed for a reaction game control box consisting of 20 illuminated switches, each connected to 5V relay modules. The relay modules are controlled using two [CD74HC4067 multiplexers](https://www.instructables.com/Arduino-Interfacing-With-CD74HC4067-16-channel-MUX/), with 10 pins (4 to 13) of each multiplexer utilized. multiplexers.
 
 ## Operation Overview
 1. The sketch generates a random number between 1 and 20.
@@ -12,7 +12,9 @@ This Arduino sketch is designed for a reaction game control box consisting of 20
 7. A new random number is generated, and the process repeats.
 
 ## Pseudo-Random Number Generation
-To ensure a more varied sequence of illuminated switches for each game session, the `randomSeed(analogRead(A0));` line is included. This utilizes the floating state of analog pin A0 to seed the random number generator, introducing additional randomness with each game session.
+To ensure a more varied sequence of illuminated switches for each game session, the
+`randomSeed(analogRead(A0));` 
+line is included. This utilizes the floating state of analog pin A0 to seed the random number generator, introducing additional randomness with each game session.
 
 ## Usage
 1. Connect the control box hardware components according to the provided wiring instructions.
