@@ -1,10 +1,11 @@
-const int multiplexerOne[4] = {3, 4, 5, 6}; 
-const int multiplexerTwo[4] = {9, 10, 11, 12}; 
-const int inputPin = 8; 
+const int multiplexerOne[4] = {5,4,3,2}; 
+const int multiplexerTwo[4] = {9,8,7,6}; 
+const int inputPin = 12; 
 
 void setup() {
   // Initialize serial communication
   Serial.begin(9600); 
+  randomSeed(analogRead(A0));
   
   // Initialize the Multiplexer pins as outputs
   for (int i = 0; i < 4; i++) {
@@ -30,8 +31,10 @@ void loop() {
 
      // Set the multiplexer based on the binary representation
     for (int i = 0; i < 4; i++) {
+      Serial.print((randomNum >> i) & 0x01);
       digitalWrite(multiplexerOne[i], (randomNum >> i) & 0x01); // Extract each bit and set the LED
     }
+    Serial.println("");
   } 
   
   else {
@@ -43,8 +46,11 @@ void loop() {
 
     // Set the multiplexer based on the binary representation
     for (int i = 0; i < 4; i++) {
+      Serial.print((randomNum >> i) & 0x01);
       digitalWrite(multiplexerTwo[i], (randomNum >> i) & 0x01); // Extract each bit and set the LED
     }
+    Serial.println("");
+
   }
 
   // Wait for the input from pin 8
